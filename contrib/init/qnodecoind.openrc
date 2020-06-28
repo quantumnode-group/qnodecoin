@@ -3,40 +3,40 @@
 # backward compatibility for existing gentoo layout 
 #
 if [ -d "/var/lib/qnodecoincore/.qnodecoincore" ]; then
-	BITCOIND_DEFAULT_DATADIR="/var/lib/qnodecoincore/.qnodecoincore"
+	QNODECOIND_DEFAULT_DATADIR="/var/lib/qnodecoincore/.qnodecoincore"
 else
-	BITCOIND_DEFAULT_DATADIR="/var/lib/qnodecoind"
+	QNODECOIND_DEFAULT_DATADIR="/var/lib/qnodecoind"
 fi
 
-BITCOIND_CONFIGFILE=${BITCOIND_CONFIGFILE:-/etc/qnodecoincore/qnodecoin.conf}
-BITCOIND_PIDDIR=${BITCOIND_PIDDIR:-/var/run/qnodecoind}
-BITCOIND_PIDFILE=${BITCOIND_PIDFILE:-${BITCOIND_PIDDIR}/qnodecoind.pid}
-BITCOIND_DATADIR=${BITCOIND_DATADIR:-${BITCOIND_DEFAULT_DATADIR}}
-BITCOIND_USER=${BITCOIND_USER:-${BITCOIN_USER:-qnodecoincore}}
-BITCOIND_GROUP=${BITCOIND_GROUP:-qnodecoincore}
-BITCOIND_BIN=${BITCOIND_BIN:-/usr/bin/qnodecoind}
-BITCOIND_NICE=${BITCOIND_NICE:-${NICELEVEL:-0}}
-BITCOIND_OPTS="${BITCOIND_OPTS:-${BITCOIN_OPTS}}"
+QNODECOIND_CONFIGFILE=${QNODECOIND_CONFIGFILE:-/etc/qnodecoincore/qnodecoin.conf}
+QNODECOIND_PIDDIR=${QNODECOIND_PIDDIR:-/var/run/qnodecoind}
+QNODECOIND_PIDFILE=${QNODECOIND_PIDFILE:-${QNODECOIND_PIDDIR}/qnodecoind.pid}
+QNODECOIND_DATADIR=${QNODECOIND_DATADIR:-${QNODECOIND_DEFAULT_DATADIR}}
+QNODECOIND_USER=${QNODECOIND_USER:-${BITCOIN_USER:-qnodecoincore}}
+QNODECOIND_GROUP=${QNODECOIND_GROUP:-qnodecoincore}
+QNODECOIND_BIN=${QNODECOIND_BIN:-/usr/bin/qnodecoind}
+QNODECOIND_NICE=${QNODECOIND_NICE:-${NICELEVEL:-0}}
+QNODECOIND_OPTS="${QNODECOIND_OPTS:-${BITCOIN_OPTS}}"
 
 name="QnodeCoin Core Daemon"
 description="QnodeCoin cryptocurrency P2P network daemon"
 
 command="/usr/bin/qnodecoind"
-command_args="-pid=\"${BITCOIND_PIDFILE}\" \
-		-conf=\"${BITCOIND_CONFIGFILE}\" \
-		-datadir=\"${BITCOIND_DATADIR}\" \
+command_args="-pid=\"${QNODECOIND_PIDFILE}\" \
+		-conf=\"${QNODECOIND_CONFIGFILE}\" \
+		-datadir=\"${QNODECOIND_DATADIR}\" \
 		-daemon \
-		${BITCOIND_OPTS}"
+		${QNODECOIND_OPTS}"
 
-required_files="${BITCOIND_CONFIGFILE}"
-start_stop_daemon_args="-u ${BITCOIND_USER} \
-			-N ${BITCOIND_NICE} -w 2000"
-pidfile="${BITCOIND_PIDFILE}"
+required_files="${QNODECOIND_CONFIGFILE}"
+start_stop_daemon_args="-u ${QNODECOIND_USER} \
+			-N ${QNODECOIND_NICE} -w 2000"
+pidfile="${QNODECOIND_PIDFILE}"
 
 # The retry schedule to use when stopping the daemon. Could be either
 # a timeout in seconds or multiple signal/timeout pairs (like
 # "SIGKILL/180 SIGTERM/300")
-retry="${BITCOIND_SIGTERM_TIMEOUT}"
+retry="${QNODECOIND_SIGTERM_TIMEOUT}"
 
 depend() {
 	need localmount net
@@ -50,29 +50,29 @@ start_pre() {
 	checkpath \
 	-d \
 	--mode 0750 \
-	--owner "${BITCOIND_USER}:${BITCOIND_GROUP}" \
-	"${BITCOIND_DATADIR}"
+	--owner "${QNODECOIND_USER}:${QNODECOIND_GROUP}" \
+	"${QNODECOIND_DATADIR}"
 
 	checkpath \
 	-d \
 	--mode 0755 \
-	--owner "${BITCOIND_USER}:${BITCOIND_GROUP}" \
-	"${BITCOIND_PIDDIR}"
+	--owner "${QNODECOIND_USER}:${QNODECOIND_GROUP}" \
+	"${QNODECOIND_PIDDIR}"
 
 	checkpath -f \
-	-o ${BITCOIND_USER}:${BITCOIND_GROUP} \
+	-o ${QNODECOIND_USER}:${QNODECOIND_GROUP} \
 	-m 0660 \
-	${BITCOIND_CONFIGFILE}
+	${QNODECOIND_CONFIGFILE}
 
 	checkconfig || return 1
 }
 
 checkconfig()
 {
-	if ! grep -qs '^rpcpassword=' "${BITCOIND_CONFIGFILE}" ; then
+	if ! grep -qs '^rpcpassword=' "${QNODECOIND_CONFIGFILE}" ; then
 		eerror ""
 		eerror "ERROR: You must set a secure rpcpassword to run qnodecoind."
-		eerror "The setting must appear in ${BITCOIND_CONFIGFILE}"
+		eerror "The setting must appear in ${QNODECOIND_CONFIGFILE}"
 		eerror ""
 		eerror "This password is security critical to securing wallets "
 		eerror "and must not be the same as the rpcuser setting."

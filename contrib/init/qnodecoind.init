@@ -19,14 +19,14 @@ fi
 RETVAL=0
 
 prog=qnodecoind
-# you can override the lockfile via BITCOIND_LOCKFILE in /etc/sysconfig/qnodecoind
-lockfile=${BITCOIND_LOCKFILE-/var/lock/subsys/qnodecoind}
+# you can override the lockfile via QNODECOIND_LOCKFILE in /etc/sysconfig/qnodecoind
+lockfile=${QNODECOIND_LOCKFILE-/var/lock/subsys/qnodecoind}
 
-# qnodecoind defaults to /usr/bin/qnodecoind, override with BITCOIND_BIN
-qnodecoind=${BITCOIND_BIN-/usr/bin/qnodecoind}
+# qnodecoind defaults to /usr/bin/qnodecoind, override with QNODECOIND_BIN
+qnodecoind=${QNODECOIND_BIN-/usr/bin/qnodecoind}
 
-# qnodecoind opts default to -disablewallet, override with BITCOIND_OPTS
-qnodecoind_opts=${BITCOIND_OPTS--disablewallet}
+# qnodecoind opts default to -disablewallet, override with QNODECOIND_OPTS
+qnodecoind_opts=${QNODECOIND_OPTS--disablewallet}
 
 start() {
     echo -n $"Starting $prog: "
