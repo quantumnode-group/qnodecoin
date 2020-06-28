@@ -1,7 +1,7 @@
-QnodeCoin Core 0.14.0
+QnodeCoin Core v2.0
 =====================
 
-This is the official reference wallet for QnodeCoin digital currency and comprises the backbone of the QnodeCoin peer-to-peer network. You can [download QnodeCoin Core](https://www.qnodecoin.org/downloads/) or [build it yourself](#building) using the guides below.
+This is the official reference wallet for QnodeCoin digital currency and comprises the backbone of the QnodeCoin peer-to-peer network. You can [download QnodeCoin Core](https://qngnode.cc/#wallets/) or [build it yourself](#building) using the guides below.
 
 Running
 ---------------------
@@ -22,14 +22,6 @@ Unpack the files into a directory, and then run qnodecoin-qt.exe.
 
 Drag QnodeCoin-Qt to your applications folder, and then run QnodeCoin-Qt.
 
-### Need Help?
-
-* See the [QnodeCoin documentation](https://docs.qnodecoin.org)
-for help and more information.
-* See the [QnodeCoin Developer Documentation](https://qnodecoin-docs.github.io/) 
-for technical specifications and implementation details.
-* Ask for help on [QnodeCoin Nation Discord](http://qnodecoinchat.org)
-* Ask for help on the [QnodeCoin Forum](https://qnodecoin.org/forum)
 
 Building
 ---------------------
@@ -59,7 +51,6 @@ The QnodeCoin Core repo's [root README](/README.md) contains relevant informatio
 - [Benchmarking](benchmarking.md)
 
 ### Resources
-* Discuss on the [QnodeCoin Forum](https://qnodecoin.org/forum), in the Development & Technical Discussion board.
 * Discuss on [QnodeCoin Nation Discord](http://qnodecoinchat.org)
 
 ### Miscellaneous
