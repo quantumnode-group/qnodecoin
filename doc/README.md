@@ -51,7 +51,7 @@ The QnodeCoin Core repo's [root README](/README.md) contains relevant informatio
 - [Benchmarking](benchmarking.md)
 
 ### Resources
-* Discuss on [QnodeCoin Nation Discord](http://qnodecoinchat.org)
+* Discuss on [QuantumNode Group Telegram Community](https://t.me/qngnodes)
 
 ### Miscellaneous
 - [Assets Attribution](assets-attribution.md)
