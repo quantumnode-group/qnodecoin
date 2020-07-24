@@ -3,7 +3,7 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#include "activemasternode.h"
+#include "masternode/activemasternode.h"
 #include "consensus/validation.h"
 #include "governance.h"
 #include "governance-vote.h"
@@ -11,7 +11,7 @@
 #include "governance-validators.h"
 #include "init.h"
 #include "validation.h"
-#include "masternode-sync.h"
+#include "masternode/masternode-sync.h"
 #include "messagesigner.h"
 #include "rpc/server.h"
 #include "util.h"

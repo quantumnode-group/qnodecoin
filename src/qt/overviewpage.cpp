@@ -19,7 +19,7 @@
 #include "walletmodel.h"
 
 #include "instantx.h"
-#include "masternode-sync.h"
+#include "masternode/masternode-sync.h"
 #include "privatesend-client.h"
 
 #include <QAbstractItemDelegate>

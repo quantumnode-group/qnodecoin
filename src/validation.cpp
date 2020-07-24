@@ -40,7 +40,7 @@
 #include "warnings.h"
 
 #include "instantx.h"
-#include "masternode-payments.h"
+#include "masternode/masternode-payments.h"
 
 #include "evo/specialtx.h"
 #include "evo/providertx.h"
