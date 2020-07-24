@@ -21,7 +21,7 @@
 #include "ui_interface.h"
 #include "util.h"
 
-#include "masternode-sync.h"
+#include "masternode/masternode-sync.h"
 #include "privatesend.h"
 
 #include <stdint.h>

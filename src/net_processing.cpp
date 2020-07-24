@@ -34,9 +34,9 @@
 #include "spork.h"
 #include "governance.h"
 #include "instantx.h"
-#include "masternode-payments.h"
-#include "masternode-sync.h"
-#include "masternode-meta.h"
+#include "masternode/masternode-payments.h"
+#include "masternode/masternode-sync.h"
+#include "masternode/masternode-meta.h"
 #ifdef ENABLE_WALLET
 #include "privatesend-client.h"
 #endif // ENABLE_WALLET
